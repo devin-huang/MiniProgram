@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="components-list">
+    <!-- 设备 -->
+    <view>
+      1. 获取当前设备信息
+    </view>
+    <view>
+      2. 设置保存当前用户信息
+    </view>
+    <!-- 二维码 -->
+    <view>
+      3. 二维码
+      <canvas canvas-id="demo-20201111" class="canvas" />
+    </view>
+    <!-- 经纬度 -->
+    
+    <view>
+      <text>
+        4. 经纬度:
+        {{ locationBygcj02.latitude }}
+        {{ locationBygcj02.longitude }}
+      </text>
+    </view>
+
+    <view>
+      5. 授权 （public/utils/author.js）
+    </view>
+  </view>
+</view>
