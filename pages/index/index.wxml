@@ -33,5 +33,9 @@
     <view>
       5. 授权 （public/utils/author.js）
     </view>
+
+    <view>
+      6. <button type="primary" bindtap="scanCodeByCamera">扫码</button>
+    </view>
   </view>
 </view>

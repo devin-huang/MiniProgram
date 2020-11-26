@@ -16,6 +16,13 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+  // 扫码
+  scanCodeByCamera() {
+    wx.navigateTo({
+      url: '../camera/camera'
+    })
+  },
+
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
