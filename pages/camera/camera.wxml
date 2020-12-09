@@ -1,0 +1,26 @@
+<!--pages/camera/camera.wxml-->
+<view class="camera">
+  <camera
+    mode="scanCode"
+    flash="off"
+    device-position="back"
+    binderror="error"
+    bindscancode="success"
+    style="width: 100%; height: 100%;"
+  >
+  <!-- 弹框 -->
+  <!-- 注意： 在IOS中camera嵌套modal组件含有slot的话，这个slot图层将在扫码视图下方。所以真机测试会第一次弹出正常然后会快速弹出空白遮盖组件modal，目前解决方式仅能是起到slot写死组件内 -->
+  <modal id="modal" ></modal>
+  
+  <!-- 扫码样式遮罩层 -->
+  <scanMask />
+  <cover-view class="fixed-text">将条码/二维码对准框内部即可扫描</cover-view>
+  
+  <!-- 底部 -->
+  <cover-view class="footer">
+    <cover-view class="flex-item demo-text-1">手动输入</cover-view>
+    <cover-view class="flex-item demo-text-2">返回</cover-view>
+  </cover-view>
+  
+</camera>
+</view>

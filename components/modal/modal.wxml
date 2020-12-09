@@ -1,0 +1,40 @@
+<!--public/components/nativeComponentModal/nativeComponentModal.wxml-->
+<cover-view class="mask col-double-center" hidden="{{hideModal}}">
+	<cover-view class="modal">
+		<cover-view class="modal-main">
+			<cover-view class="text-center p-15 modal-title" wx:if='{{modalData.title}}'>
+				{{modalData.title}}
+			</cover-view>
+			<cover-view class="modal-content">
+				<cover-view class="font15 p-20-15" wx:if='{{modalData.content}}'>
+					{{modalData.content}}
+				</cover-view>
+				<!-- 注意： 在IOS中camera嵌套modal组件含有slot的话，这个slot图层将在扫码视图下方。所以真机测试会第一次弹出正常然后会快速弹出空白遮盖组件modal，目前解决方式仅能是起到slot写死组件内 -->
+				<!-- <slot></slot> -->
+				<cover-view class="p-20">
+					<cover-view class="font16">该核验码仅支持到指定店铺核销</cover-view>
+					<cover-view class="font14 mt-5"> Test </cover-view>
+					<cover-view class="font13 color-999 mt-15">当前登录账号店铺</cover-view>
+					<cover-view class="font15 color-blue mt-5"> Test </cover-view>
+				</cover-view>
+			</cover-view>
+		</cover-view>
+		<cover-view class="modal-footer flex-row">
+			<cover-view
+				wx:if='{{modalData.hasCancelBtn}}'
+				class="text-center p-15 flex-1 {{modalData.hasCancelBtn && modalData.hasConfirmBtn ? 'border-right' : ''}}"
+				bindtap='handleCancel'
+			>
+				{{modalData.cancelText}}
+			</cover-view>
+			<cover-view
+			 class="p-15 flex-1 text-center"
+			 wx:if='{{modalData.hasConfirmBtn}}'
+			 style='color: {{modalData.confirmColor}}'
+			 bindtap='handleConfirm'
+			>{{modalData.confirmText}}
+			</cover-view>
+		</cover-view>
+	</cover-view>
+</cover-view>
+

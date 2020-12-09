@@ -1,0 +1,152 @@
+/* enterprise/mall/pages/components/scanMask/index.wxss */
+
+/* 扫描蒙层样式 */
+.scan-mask {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+}
+
+.mask-top, .mask-bottom, .mask-left, .mask-right, .mask-center  {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.mask-top {
+  top: 0;
+  bottom: calc(100% - 140px);
+  left: calc((100% - 269px) / 2);
+  right: calc((100% - 269px) / 2);
+  z-index: 5;
+}
+
+.mask-bottom {
+  top: 409px;
+  bottom: 0;
+  left: calc((100% - 269px) / 2);
+  right: calc((100% - 269px) / 2);
+  z-index: 5;
+}
+
+.mask-left {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: calc((100% - 269px) / 2 + 269px);
+  z-index: 5;
+}
+
+.mask-right {
+  top: 0;
+  bottom: 0;
+  left: calc((100% - 269px) / 2 + 269px);
+  right: 0;
+  z-index: 5;
+}
+
+.mask-center {
+  width: 269px;
+  height: 269px;
+  border: 1px solid #0188ff;
+  top: 140px;
+  left: calc((100% - 269px) / 2);
+  z-index: 9;
+  box-sizing: border-box;
+  background: unset;
+}
+
+.side-block-left-top, .side-block-right-top, .side-block-left-btm, .side-block-right-btm { 
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  z-index: 5;
+}
+
+.side-block-left-top {
+  top: 0px;
+  left: 0px;
+}
+
+.side-block-right-top {
+  top: 0px;
+  right: 0px;
+}
+
+.side-block-left-btm {
+  bottom: 0px;
+  left: 0px;
+}
+
+.side-block-right-btm {
+  bottom: 0px;
+  right: 0px;
+}
+
+.block-left-top-1,
+.block-left-top-2, 
+.block-right-top-1,
+.block-right-top-2,
+.block-left-btm-1,
+.block-left-btm-2,
+.block-right-btm-1,
+.block-right-btm-2 {
+  content: '';
+  display: block;
+  position: absolute;
+  background: #0188ff;
+}
+
+.block-left-top-1 {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+}
+.block-left-top-2 {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 3px;
+}
+
+.block-right-top-1 {
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 3px;
+}
+.block-right-top-2 {
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 3px;
+}
+
+.block-left-btm-1 {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+}
+.block-left-btm-2 {
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 3px;
+}
+
+.block-right-btm-1 {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 3px;
+}
+.block-right-btm-2 {
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 3px;
+}

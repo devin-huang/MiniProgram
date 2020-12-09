@@ -1,0 +1,25 @@
+<!--enterprise/mall/pages/components/scanMask/index.wxml-->
+<cover-view class="scan-mask">
+  <cover-view class="mask-top"></cover-view>
+  <cover-view class="mask-bottom"></cover-view>
+  <cover-view class="mask-center">
+    <cover-view class="side-block-left-top">
+      <cover-view class="block-left-top-1"></cover-view>
+      <cover-view class="block-left-top-2"></cover-view>
+    </cover-view>
+    <cover-view class="side-block-right-top">
+      <cover-view class="block-right-top-1"></cover-view>
+      <cover-view class="block-right-top-2"></cover-view>
+    </cover-view>
+    <cover-view class="side-block-left-btm">
+      <cover-view class="block-left-btm-1"></cover-view>
+      <cover-view class="block-left-btm-2"></cover-view>
+    </cover-view>
+    <cover-view class="side-block-right-btm">
+      <cover-view class="block-right-btm-1"></cover-view>
+      <cover-view class="block-right-btm-2"></cover-view>
+    </cover-view>
+  </cover-view>
+  <cover-view class="mask-left"></cover-view>
+  <cover-view class="mask-right"></cover-view>
+</cover-view>

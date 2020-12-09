@@ -37,5 +37,11 @@
     <view>
       6. <button type="primary" bindtap="scanCodeByCamera">扫码</button>
     </view>
+
+    <view>
+      7. <view catchtap="displayModal">显示弹框</view>
+    </view>
   </view>
 </view>
+
+<modal id="modal" />

@@ -98,5 +98,10 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+
+  displayModal: function () {
+    this.modal = this.selectComponent('#modal')
+    this.modal.show()
   }
 })

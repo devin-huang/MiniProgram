@@ -1,0 +1,72 @@
+/* public/components/nativeComponentModal/nativeComponentModal.wxss */
+.mask {
+  position: fixed;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  animation: mask 0.1s ease;
+  -webkit-animation: mask 0.1s ease;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.modal {
+  border-radius: 12px;
+  background: #fff;
+  width: 70%;
+  animation: modalScale 0.1s ease;
+  -webkit-animation: modalScale 0.1s ease;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-main {
+  min-height: 50px;
+  padding: 10px;
+}
+
+.modal-title {
+  border-bottom: 1px solid #f2f2f2;
+  padding: 15px;
+  font-size: 16px;
+}
+
+.modal-footer  {
+  border-top: 1px solid #f2f2f2;
+  font-size: 16px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.border-right {
+  border-right: 1px solid #f2f2f2;
+}
+
+.p-20-15 {
+  padding: 20px 15px;
+}
+
+@keyframes modalScale {
+  0% {
+    transform: scale(0.9);
+}
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes mask {
+  0% {
+    opacity: 0.2
+  }
+  100% {
+    opacity: 0.5
+  }
+}
