@@ -1,34 +1,47 @@
 <!--public/components/nativeComponentModal/nativeComponentModal.wxml-->
 <cover-view class="mask col-double-center" hidden="{{hideModal}}">
 	<cover-view class="modal">
-		<cover-view class="modal-main">
-			<cover-view class="text-center p-15 modal-title" wx:if='{{modalData.title}}'>
+		<!-- useCamera用于在使用Camera时防止弹框被遮住，使用固定HTML来显示 -->
+		<cover-view
+			wx:if="{{ !modalData.useCamera }}"
+			class="modal-main"
+		>
+			<cover-view
+			wx:if='{{modalData.title}}'
+			class="modal-title">
 				{{modalData.title}}
 			</cover-view>
 			<cover-view class="modal-content">
-				<cover-view class="font15 p-20-15" wx:if='{{modalData.content}}'>
+				<cover-view wx:if='{{modalData.content}}'>
 					{{modalData.content}}
 				</cover-view>
-				<!-- 注意： 在IOS中camera嵌套modal组件含有slot的话，这个slot图层将在扫码视图下方。所以真机测试会第一次弹出正常然后会快速弹出空白遮盖组件modal，目前解决方式仅能是起到slot写死组件内 -->
-				<!-- <slot></slot> -->
-				<cover-view class="p-20">
-					<cover-view class="font16">该核验码仅支持到指定店铺核销</cover-view>
-					<cover-view class="font14 mt-5"> Test </cover-view>
-					<cover-view class="font13 color-999 mt-15">当前登录账号店铺</cover-view>
-					<cover-view class="font15 color-blue mt-5"> Test </cover-view>
-				</cover-view>
+				<!-- 注意： 
+					在IOS中camera嵌套modal组件含有slot的话，这个slot图层将在扫码视图下方。
+					所以真机测试会第一次弹出正常然后会快速弹出空白遮盖组件modal，目前解决方式仅能是起到slot写死组件内 
+				-->
+				<slot></slot>
 			</cover-view>
 		</cover-view>
-		<cover-view class="modal-footer flex-row">
+		<!-- 如需要自定义展示camera内容，只能使用写死方式 -->
+		<cover-view wx:else>
+			<cover-view>
+				<cover-view class="modal-content">如需要自定义展示camera内容</cover-view>
+				<cover-view class="modal-content">只能使用写死方式 </cover-view>
+			</cover-view>
+		</cover-view>
+		<!-- 尾部 -->
+		<cover-view class="modal-footer">
+			<!-- 取消按钮 -->
 			<cover-view
 				wx:if='{{modalData.hasCancelBtn}}'
-				class="text-center p-15 flex-1 {{modalData.hasCancelBtn && modalData.hasConfirmBtn ? 'border-right' : ''}}"
+				class="btn {{modalData.hasCancelBtn && modalData.hasConfirmBtn ? 'border-right' : ''}}"
 				bindtap='handleCancel'
 			>
 				{{modalData.cancelText}}
 			</cover-view>
+			<!-- 确定按钮 -->
 			<cover-view
-			 class="p-15 flex-1 text-center"
+			 class="btn"
 			 wx:if='{{modalData.hasConfirmBtn}}'
 			 style='color: {{modalData.confirmColor}}'
 			 bindtap='handleConfirm'
@@ -37,4 +50,5 @@
 		</cover-view>
 	</cover-view>
 </cover-view>
+
 

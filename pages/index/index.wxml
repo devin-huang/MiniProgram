@@ -40,8 +40,14 @@
 
     <view>
       7. <view catchtap="displayModal">显示弹框</view>
+      <modal id="modal" ></modal>
+    </view>
+    
+    <view>
+      8. <view catchtap="displayPopuBox"> POPUBOX </view>
+      <popupBox popContent id="popupBox" title="test123" btnStatus="true">
+        <view slot='popContent'>111111111111111111</view>
+      </popupBox>
     </view>
   </view>
 </view>
-
-<modal id="modal" />

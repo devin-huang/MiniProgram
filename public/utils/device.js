@@ -22,10 +22,13 @@ class Device {
     this.version = null
     // 操作系统版本
     this.system = null
+
+    /// 底部预留高度（兼容iPhone X）
+    this.remainHeight = 0;
   }
 
   // 初始化设配值
-  init () {
+  init (callback) {
     const that = this
     wx.getSystemInfo({
       success: function (res) {
@@ -42,9 +45,31 @@ class Device {
             // 微信
             that.environment = "wx";
           }
+        } else {
+          that.environment = res.environment;
+        }
+
+        // 安卓机先不考虑设配
+        that.remainHeight = 0;
+
+        // IPHONE X 兼容底部预留空间
+        if (that.model.indexOf("iPhone X") >= 0) {
+          that.remainHeight = 34.0;
+        } else if (
+          res.platform === "ios" &&
+          res.safeArea != null &&
+          typeof res.safeArea === "object"
+        ) {
+          that.remainHeight = Math.max(
+            res.screenHeight - res.safeArea.bottom,
+            0
+          );
         }
       }
     })
+    if (typeof callback === "function") {
+      callback();
+    }
   }
 }
 

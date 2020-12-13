@@ -42,7 +42,7 @@ Component({
       }
       this.setData({
         modalData: {
-          ...primary
+          ...primary, ...params
         },
         hideModal: false
       }, function () {

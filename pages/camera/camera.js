@@ -17,6 +17,7 @@ Page({
       hasCancelBtn: false,
       confirmText: '知道了',
       confirmColor: '#323232',
+      useCamera: true,
       confirm: ()=> {
         // 点击回调
       }

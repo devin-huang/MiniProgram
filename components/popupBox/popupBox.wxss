@@ -1,0 +1,122 @@
+/* enterprise/components/popupBox/popupBox.wxss */
+
+@keyframes fade-in {
+  0% {
+    bottom: -100%;
+    opacity: 0;
+  }/*初始状态 透明度为0*/
+
+  20% {
+    bottom: -100%;
+    opcity: 0;
+  }/*过渡状态 透明度为0*/
+
+  100% {
+    margin-top: 0;
+    opacity: 1;
+  }/*结束状态 透明度为1*/
+}
+
+.popBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.popbj {
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.contentBox {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  height: 300px;
+  animation: fade-in 0.3s ease 1 forwards;
+  box-sizing: border-box;
+}
+
+.popTitle {
+  height: 40px;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  position: relative;
+}
+
+.bordTitle {
+  font-weight: bold;
+}
+
+.popopTitleLine {
+  border-bottom: 1rpx solid #f2f2f2;
+}
+
+.closeIcon {
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  box-sizing: border-box;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+.closeLeft {
+  left: 0;
+}
+
+.closeRight {
+  right: 0;
+}
+
+.popbtn {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-image: linear-gradient(90deg, #ff8362 0%, #fe473c 50%, #ff4258 100%);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #fff;
+}
+
+.popRedbtn {
+  background-image: linear-gradient(90deg, #ff8362 0%, #fe473c 50%, #ff4257 99%, #ff4258 100%);
+  color: #fff;
+}
+
+.popGraybtn {
+  background: #dadada;
+  color: #fff;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.onlyCloseIconBox {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 30rpx 24rpx;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.onlyCloseIcon {
+  width: 40rpx;
+  height: 40rpx;
+}

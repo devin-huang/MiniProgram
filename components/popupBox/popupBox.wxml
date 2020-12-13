@@ -1,0 +1,96 @@
+<!-- 
+ 弹出框组件
+  Devin
+  2020-12-13
+
+使用方法
+  弹框状态 status： true（ 显示 ） false（ 隐藏 ）默认false 
+  弹框高度 height： 默认335
+  组件层级 zIndex 默认层级9 
+  使用圆角 fillet  默认没有   使用：fillet="10px 10px 0px 0px "
+
+  标题文字设置 title, 标题为空则不渲染标题
+  标题默认居中 textAlign
+  关闭按钮位置 btnClosePosition 默认靠右 btnClosePosition="right"  靠左btnClosePosition="left"
+
+  是否显示按钮 btnStatus： true（ 显示 ） false（ 隐藏 ） 默认false 
+  按钮文字 btnText 默认值 '确定" 
+  按钮自定义样式 btnStyle  默认红色渐变按钮，使用：btnStyle="{{ background: red }}"
+
+
+  底部按钮事件 popBtn  bind:popBtn="自定义事件"
+
+  标题底部是否有线条 hasTitleLine 默认为：false
+
+  closeIcon 关闭按钮地址
+
+  参考:
+  <popupBox  id="popupBox" popHeight="500" title="标题" status="true" btnStatus="true" btnText="底部按钮啊" bind:popBtn="popBtn">
+    <view slot='popContent'>
+      对的自定义内容就写在这里啦
+    </view>
+  </popupBox>
+
+  //js文件 添加
+  onReady: function () {
+    this.popupBox = this.selectComponent("#popupBox");
+  }
+
+  // 调用弹出框 show()事件
+  parantShow(){
+    var weakThis=this;
+    weakThis.popupBox.show();
+  },
+
+  // 调用弹出框 close()事件
+  parantClose(){
+    var weakThis=this;
+    weakThis.popupBox.close();
+  }
+-->
+
+<view
+  wx:if="{{status}}"
+  class='popBox'
+  style='z-index:{{zIndex}}'
+  title="{{title}}"
+  popHeight="{{height}}"
+  btnStatus="{{btnStatus}}"
+  btnText="{{btnText}}"
+  btnStyle="{{btnStyle}}"
+  catchtouchmove='catchtouchMove'
+>
+  <view class='popbj' bindtap='close'></view>
+  <view
+    class='contentBox'
+    style='height: {{ popHeight }}px; padding-bottom: {{ remainHeight }}px; border-radius: {{ fillet }}'
+  >
+    <!-- 标题 -->
+    <view
+      class='popTitle {{ hasTitleLine ? "popopTitleLine" : "" }} {{ isBoldTitle ? "bordTitle" : "" }}'
+      style="justify-content: {{ textAlign == 1 ? 'center' : 'start' }}; height: {{ titleHeight }} px; {{ titleStyle }}"
+    >
+      <text wx:if="{{ title }}"> {{title}} </text>
+      <image
+        wx:if="{{closeable}}"
+        class='closeIcon {{ btnClosePosition == "right" ? "closeRight" : "closeLeft" }}'
+        src='{{ closeIcon || "./images/icon_close_gray.png" }}'
+        bindtap='close'
+      />
+    </view>
+    <scroll-view scroll-y="true" style='height:{{ scrollHeight }}px; padding-bottom: {{ remainHeight }}px'>
+      <slot name='popContent'></slot>
+    </scroll-view>
+
+    <!-- 底部 -->
+    <block wx:if="{{ btnStatus }}">
+      <view
+        class='popbtn'
+        style='bottom: {{ remainHeight }} px; {{ btnStyle }}'
+        bindtap='popBtn'
+      >
+        {{btnText}} 
+      </view>
+    </block>
+  </view>
+</view>

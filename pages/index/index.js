@@ -102,6 +102,11 @@ Page({
 
   displayModal: function () {
     this.modal = this.selectComponent('#modal')
-    this.modal.show()
+    this.modal.show({ title: '测试标题', content: '测试内容' })
+  },
+
+  displayPopuBox: function () {
+    this.popupBox = this.selectComponent('#popupBox')
+    this.popupBox.show()
   }
 })
