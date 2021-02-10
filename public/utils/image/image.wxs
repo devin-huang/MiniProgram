@@ -1,0 +1,57 @@
+/**
+ * ===== .wxs 文件 =====
+ *
+ * !!不要!!在其中使用 const、let、箭头函数、解构等 ES5、ES6 语法和特效，wxs 语法参见:
+ * https://developers.weixin.qq.com/miniprogram/dev/reference/wxs/
+ * .wxml 迅速看出覆盖的样式：
+ *
+ * 例如 到家模块, logo
+ * 引入image.wxs
+ * <wxs module="_" src="/public/constant/image/image.wxs" />
+ *
+ * 图片使用规则
+ * <image src="{{_.src("daojia", "logo")}}" />
+ *
+ *
+ */
+
+// 样式策略集合
+module.exports = {
+  /**
+   * 设置样式
+   * @param packageName 包名, public / enterprise / shopping
+   * @param name 图片名, 不用后缀png
+   */
+  src: function (packageName, name) {
+    var miniprogramUrl = "https://assets.****.cn/assets/miniprogram";
+    var url = miniprogramUrl + "/" + packageName + "/" + name + ".png";
+    return url;
+  },
+
+  /**
+   * 处理jpg
+   */
+  jpg: function (packageName, name) {
+    var miniprogramUrl = "https://assets.****.cn/assets/miniprogram";
+    var url = miniprogramUrl + "/" + packageName + "/" + name + ".jpg";
+    return url;
+  },
+
+  /**
+   * 处理gif
+   */
+  gif: function (packageName, name) {
+    var miniprogramUrl = "https://assets.****.cn/assets/miniprogram";
+    var url = miniprogramUrl + "/" + packageName + "/" + name + ".gif";
+    return url;
+  },
+
+  /**
+   * 处理svg
+   */
+  svg: function (packageName, name) {
+    var miniprogramUrl = "https://assets.****.cn/assets/miniprogram";
+    var url = miniprogramUrl + "/" + packageName + "/" + name + ".svg";
+    return url;
+  },
+};

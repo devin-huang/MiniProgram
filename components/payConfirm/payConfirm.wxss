@@ -1,0 +1,102 @@
+.without-pwd-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    padding: 0 75rpx;
+    align-items: center;
+    font-family: PingFangSC-Regular;
+    line-height: 1.4;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    box-sizing: border-box;
+}
+
+.without-pwd-container .main {
+    width: 100%;
+    padding: 42rpx 30rpx 40rpx;
+    border-radius: 18rpx;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.without-pwd-container .main .header {
+    display: flex;
+}
+
+.without-pwd-container .main .header .close {
+    flex: 0 0 40rpx;
+    width: 40rpx;
+    height: 40rpx;
+    margin-left: -4rpx;
+}
+
+.without-pwd-container .main .header .close .close-btn {
+    width: 100%;
+    height: 100%;
+}
+
+.without-pwd-container .main .header .title {
+    flex: 1;
+    text-align: center;
+    font-size: 32rpx;
+    color: #323232;
+}
+
+.without-pwd-container .main .body {
+    margin: 30rpx 0 40rpx;
+}
+
+.without-pwd-container .main .body .h4 {
+    font-size: 32rpx;
+    color: #323232;
+    text-align: center;
+}
+
+.without-pwd-container .main .body .money {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12rpx;
+    font-family: PingFangSC-Medium;
+    font-size: 54rpx;
+    color: #323232;
+    text-align: center;
+}
+
+.without-pwd-container .main .body .money .symbol {
+    vertical-align: 15rpx;
+    display: inline-block;
+}
+
+.without-pwd-container .main .body .money .number {
+    font-size: 72rpx;
+}
+
+.without-pwd-container .main .body .balance {
+    display: flex;
+    justify-content: space-between;
+    margin: 40rpx 0 0;
+    padding: 30rpx 0 0;
+    font-size: 28rpx;
+    border-top: 1rpx solid #F2F2F2;
+}
+
+.without-pwd-container .main .body .balance .label {
+    color: #999999;
+}
+
+.without-pwd-container .main .body .balance .sum {
+    color: #323232;
+}
+
+.without-pwd-container .main .footer {
+    line-height: 88rpx;
+    font-size: 32rpx;
+    color: #fff;
+    text-align: center;
+    border-radius: 44rpx;
+    background-color: #FF2332;
+}

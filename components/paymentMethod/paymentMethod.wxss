@@ -1,0 +1,124 @@
+/* public/components/paymentMethod/paymentMethod.wxss */
+
+.componentsBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.30);
+    z-index: 9;
+}
+
+.absoluteBox {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 350px;
+    width: 100%;
+    border-radius: 24rpx 24rpx 0 0;
+}
+
+.contentBox {
+    background: #fff;
+}
+
+.column {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    margin: 0 24rpx;
+    font-size: 14px;
+    color: #323232;
+}
+
+.column:nth-of-type(1) {
+    border: none;
+}
+
+.column span {
+    font-size: 28rpx;
+    color: #323232;
+}
+
+.iconLeft {
+    width: 20px;
+    height: 20px;
+    margin-right: 20rpx;
+}
+
+.iconRight {
+    width: 20px;
+    height: 20px;
+    padding: 0 4px 0 10px;
+}
+
+.flex1 {
+    flex: 1;
+}
+
+.flex {
+    display: flex;
+}
+
+.flexC {
+    display: flex;
+    align-items: center;
+}
+
+.gray3 {
+    color: #323232;
+}
+
+.gray9 {
+    color: #999;
+}
+
+.gray {
+    color: #ccc
+}
+
+.f12 {
+    font-size: 12px;
+}
+
+.red {
+    color: #FF2332;
+}
+
+.icon14 {
+    width: 9px;
+    height: 9px;
+}
+
+.title {
+    font-size: 32rpx;
+    color: #323232;
+    box-sizing: border-box;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    font-weight: bold;
+}
+
+.close {
+    width: 20px;
+    height: 20px;
+    padding: 15px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.selfcashiers {
+    padding-left: 25px;
+}
+
+.selfcashiers .iconLeft {
+    padding-left: 0;
+}
+
+.selfcashiers .iconRight {
+    padding-right: 17px;
+}

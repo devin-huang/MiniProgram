@@ -1,0 +1,91 @@
+<!-- public/components/paymentMethod/paymentMethod.wxml -->
+<!-- 支付方式选择组件
+  author: 小草帽
+  date: 2019-11-01 -->
+<!-- // 展示形式 默认页面 确认订单 提交订单 0 订单1  自助买单购物车2  付款积分3
+    type: {
+      type: Number,
+      value: 0,
+    },
+    // 是否显示 只有弹窗需要传此字段 type 0 2 不需要传次字段
+    show: {
+      type: Boolean,
+      value: false
+    },
+    // 不可使用文字提示
+    textTips: {
+      type: String,
+      value: '',
+    },
+    // 弹窗框默认选中项 不选中传 -1 默认从0开始
+    selectIndex: {
+      type: Number,
+      value: 0,
+    },
+页面
+<paymentMethod  type="0" /> 
+<paymentMethod  type="2" textTips="暂不支持购物卡支付"  /> 
+弹窗
+
+<paymentMethod 
+  type="1" 
+  show="{{showPop}}" 
+  textTips="暂不支持购物卡支付" 
+  /> -->
+<wxs src="../../../public/constant/image/image.wxs" module="_" />
+<view class="{{pageType == 1? 'componentsBox':''}}" wx:if="{{apiDone? pageType == 1? show : true : false}}" catchtouchmove="{{pageType == 1? 'touchmove':''}}">
+    <view class="contentBox {{pageType == 1? 'absoluteBox':''}} {{selfcashiersStyle?'selfcashiers':''}}">
+        <!-- 弹框再次选择支付方式 -->
+        <view class="title" wx:if="{{pageType == 1}}">
+            请选择支付方式
+            <image src="../../images/icon_close_black.png" class="close" catchtap="handleClose" />
+        </view>
+        <!-- 微信支付 -->
+        <view class="column {{selectType != 0?'':''}}" catchtap="handleType" data-type="0" wx:if="{{!isShowIntegral}}">
+            <image src='{{_.src("common", "icon_pay_wechat")}}' class="iconLeft" />
+            <view class="flex1">
+                <span>微信支付</span>
+            </view>
+            <block wx:if="{{isShowIcon}}">
+                <image wx:if="{{pageType == 0}}" src="../../images/icon_select_round_{{selectType == 0?'':'un'}}selected.png" class="iconRight" />
+                <image wx:if="{{pageType == 1 && selectType == 0}}" src="{{iconSelect}}" class="iconRight" />
+            </block>
+        </view>
+        <!-- 虹包支付 -->
+        <view class="column {{textTips == '' ? selectType != 1?'':'':'gray'}} {{info.hadPassword == 0 ?'gray':''}}" catchtap="handleType" data-type="1" style='border-top:1rpx solid #f2f2f2'>
+            <image src='{{_.src("common", "icon_shopping_card")}}' class="iconLeft" />
+            <view class="flex1">
+                <view>
+                    购物卡支付
+                    <block wx:if="{{pageType == 1 && info.hadPassword != 0}}">
+                        (总资产{{info.totalBalance}}元)
+                    </block>
+                </view>
+                <view class="flexC f12" catchtap="handleOpenSoon" wx:if="{{info.hadPassword == 0}}">
+                    暂未设置支付密码，
+                    <span class="red">立即设置</span>
+                    <image src="../../images/icon_extended_red.png" class="icon14" />
+                </view>
+                <view class="f12" wx:if="{{info.hadPassword == 1 && textTips != ''}}">
+                    {{textTips}}
+                </view>
+            </view>
+            <view class="flex gray9 {{textTips != ''?'gray':''}}">
+                <block wx:if="{{pageType != 1}}">总资产{{info.totalBalance}}元</block>
+                <block wx:if="{{isShowIcon}}">
+                    <image wx:if="{{pageType == 0}}" src="../../images/icon_select_round_{{selectType == 1?'':'un'}}selected.png" class="iconRight" />
+                    <image wx:if="{{pageType == 1 && selectType == 1}}" src="{{iconSelect}}" class="iconRight" />
+                </block>
+            </view>
+        </view>
+        <!-- 积分支付 -->
+        <view class="column {{ 0 - integral < 0 ?'':'gray'}}" wx:if="{{pageType == 1 && isShowIntegral}}" catchtap="handleType" data-type="2">
+            <image src='{{_.src("common", "icon_rainbobag_integral_pay")}}' class="iconLeft" />
+            <view class="flex1">
+                <span>积分支付</span>
+                <block wx:if="{{pageType == 1}}">(总积分{{integral}})</block>
+            </view>
+            <image wx:if="{{selectType == 2}}" src="{{iconSelect}}" class="iconRight" />
+        </view>
+    </view>
+</view>

@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {
+        "passwordSettings": "/public/components/passwordSettings/passwordSettings",
+        "alertView": "/public/components/alertView/alertView",
+        "pay-confirm": "/public/components/payConfirm/payConfirm"
+    }
+}

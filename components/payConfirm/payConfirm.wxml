@@ -1,0 +1,22 @@
+<!-- 实际支付前再次选择 【购物卡】 支付方式，集合payOrder使用 -->
+<view hidden="{{!isShow}}" class="without-pwd-container">
+    <view class="main">
+        <view class="header">
+            <view class="close" catch:tap="onClose">
+                <image class="close-btn" src="/public/images/icon_close_black.png" />
+            </view>
+        </view>
+        <view class="body">
+            <view class="h4">购物卡支付</view>
+            <view class="money">
+                <text class="symbol">￥</text>
+                <text class="number">{{finalPayment}}</text>
+            </view>
+            <view class="balance">
+                <view class="label">购物卡总资产</view>
+                <view class="sum">¥{{totalBalance}}</view>
+            </view>
+        </view>
+        <view class="footer" catch:tap="onPay">确认支付</view>
+    </view>
+</view>

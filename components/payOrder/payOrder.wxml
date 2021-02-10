@@ -1,0 +1,10 @@
+<!-- public/components/payOrder/payOrder.wxml -->
+<!-- 实际支付的组件，集合payComfirm使用 -->
+<!-- 支付方式订单封装请求、虹包输密码组件
+  author: Wang
+  date: 2019-11-20 -->
+<!-- 密码输入面板 -->
+<passwordSettings id="passwordSettings" show="{{showPayPwdPanel}}" pageType="2" final-payment="{{payAmount}}" total-balance="{{totalBalance}}" title="输入支付密码" text="" zIndex="{{zIndex}}" bind:handleKey="handleKey" bind:close="handleClose" reset="{{isResetInput}}" />
+<!-- 虹包 支付确认 -->
+<pay-confirm id="pay-confirm" final-payment="{{payAmount}}" total-balance="{{totalBalance}}" bind:close="handleClose" bind:pay="rainbowPay"></pay-confirm>
+<alertView zIndex="{{zIndex + 10}}" id="alertView" />
