@@ -84,19 +84,21 @@
 
 - SDK： H5 / APP 跨端能使用 WX 的功能
 
-* 同一公司，同一小程序中嵌套 H5（web-view）则使用：wx.\*\*\*，如：wx.getSystemInfo / wx.qy.login 即可，不需授权
+### 同一公司，同一小程序中嵌套 H5（web-view）则使用：wx.\*\*\*，如：wx.getSystemInfo / wx.qy.login 即可，不需授权
 
-* 同一公司，不同小程序中嵌套 H5（web-view）需要授权：wx.agentConfig，注意：企业微信 3.0.24 及以后版本
+### 同一公司，不同小程序中嵌套 H5（web-view）需要授权：wx.agentConfig，有以下注意事项：
 
-  ### 需授权的域名需要在企业微信后台管理系统添加位白名单，（校验：企微生成唯一标识码放入域名中用过校验）
+- 企业微信 3.0.24 及以后版本，否则会报
 
-  ### launchMiniprogram 企业微信 3.0.36 及以后版本支持
+- 需授权的域名需要在企业微信后台管理系统添加位白名单，（校验：企微生成唯一标识码放入域名中用过校验）
 
-  ### Android 使用跳转到小程序无效，原因是由于 launchMiniprogram 没有在 amount 生命周期中调用
+- launchMiniprogram 企业微信 3.0.36 及以后版本支持 no_permission/ no_suport
 
-  ### token 验证：由于 H5 嵌套在小程序环境内，所以跳转时是可以获取到当前微信环境的用户信息/系统信息从而实现用户验证
+- Android 使用跳转到小程序无效，原因是由于 launchMiniprogram 没有在 amount 生命周期中调用
 
-- 使用用例：
+- token 验证：由于 H5 嵌套在小程序环境内，所以跳转时是可以获取到当前微信环境的用户信息/系统信息从而实现用户验证
+
+* 使用用例：
 
 ```
 
