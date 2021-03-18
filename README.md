@@ -84,9 +84,9 @@
 
 - SDK： H5 / APP 跨端能使用 WX 的功能
 
-### 同一公司，同一小程序中嵌套 H5（web-view）则使用：wx.\*\*\*，如：wx.getSystemInfo / wx.qy.login 即可，不需授权
+#### 同一公司，同一小程序中嵌套 H5（web-view）则使用：wx.\*\*\*，如：wx.getSystemInfo / wx.qy.login 即可，不需授权
 
-### 同一公司，不同小程序中嵌套 H5（web-view）需要授权：wx.agentConfig，有以下注意事项：
+#### 同一公司，不同小程序中嵌套 H5（web-view）需要授权：wx.agentConfig，有以下注意事项：
 
 - 企业微信 3.0.24 及以后版本，否则会报
 
