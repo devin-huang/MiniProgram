@@ -82,7 +82,7 @@
 
 ### JS-SDK
 
-### SDK： 让 H5 / APP 跨端能使用 WX 的功能
+### SDK： 让 微信内置H5 / APP 使用 WX 的功能
 
 #### 同一公司，同一小程序中嵌套 H5（web-view）则使用：wx.\*\*\*，如：wx.getSystemInfo / wx.qy.login 即可，不需授权
 
@@ -139,7 +139,6 @@ export const onMinApp = (path?: string) => {
       wx.invoke(
         'launchMiniprogram',
         {
-
           appid: 'wx83b25ac313a*****', // 需跳转的小程序appid
           path: path || 'enterprise/pages/index/index', // 所需跳转的小程序内页面路径及参数。非必填
           miniprogramType: 1
