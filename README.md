@@ -21,7 +21,22 @@
 
 ### 二维码
 
-    `components/QRcode.js`
+    `public/scan/QRcode.js` 导出 `module.exports = { api }`
+    
+    - 使用方式： 
+    ```
+        const qrcode = require("../../**/qrcode.js");
+        /**
+        * code 传递的内容
+        * canvansId 画布唯一值, <canvas  canvas-id=canvansId />
+        * cavW 画布宽度
+        * cavH 画布高度
+        * $this 指定当前实例，一般传this
+        * ecclevel 默认underfind
+        * callback 生成成功回调
+        */
+        qrcode.api.draw(couponCode, canvansId, cavW, cavH, this, underfind, callback);
+    ```
 
 ### 地位位置
 
