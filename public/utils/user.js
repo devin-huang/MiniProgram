@@ -33,7 +33,7 @@ class User {
     this.profileDone = false;   //资料补充已完成
   }
 
-  // 保存信息
+  // 保存信息到缓存
   saveUserInfo() {
     if (this.accessToken != null) {
       wx.setStorageSync("sys-accesstoken", this.accessToken);
@@ -48,7 +48,7 @@ class User {
     }
   }
 
-  //读取信息
+  //读取信息（读取前会先请求接口获取用户信息保存在localstorage中）
   readUserInfo () {
     var isVip = wx.getStorageSync("sys-isvip");
     var accessToken = wx.getStorageSync("sys-accesstoken");
