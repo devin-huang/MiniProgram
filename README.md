@@ -38,7 +38,7 @@
         qrcode.api.draw(couponCode, canvansId, cavW, cavH, this, underfind, callback);
     ```
     
-### 订阅消息（订阅消息的能力）
+### 订阅消息（取餐提醒、排队提醒）
 
     - wx.requestSubscribeMessage
 
