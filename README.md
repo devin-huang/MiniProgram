@@ -37,6 +37,10 @@
         */
         qrcode.api.draw(couponCode, canvansId, cavW, cavH, this, underfind, callback);
     ```
+    
+### 订阅消息
+
+    - wx.requestSubscribeMessage
 
 ### 地位位置
 
